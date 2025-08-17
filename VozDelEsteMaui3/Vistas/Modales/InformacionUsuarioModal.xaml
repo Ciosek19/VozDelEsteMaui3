@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
+             x:Class="VozDelEsteMaui3.Vistas.Modales.InformacionUsuarioModal"
+             x:DataType="vm:MainPageViewModel"
+             Title="InformacionUsuarioModal"
+             BackgroundColor="#80000000"
+             NavigationPage.HasNavigationBar="False"
+             Padding="40">
+   
+   <ScrollView>
+      <Border
+         WidthRequest="400"
+         HeightRequest="600"
+         BackgroundColor="Black">
+      <VerticalStackLayout 
+         Spacing="10"
+         WidthRequest="250">
+            <Label
+               Text="Tus datos"
+               HorizontalTextAlignment="Center"
+               FontSize="32"
+               Margin="0,30,0,0"/>
+            <Image Source="{Binding UsuarioActual.FotoUrl}" HeightRequest="120" WidthRequest="120" Aspect="AspectFill" HorizontalOptions="Center"/>
+
+         <Label Text="Alias" FontAttributes="Bold"/>
+         <Label Text="{Binding UsuarioActual.Alias}" />
+
+         <Label Text="Nombre completo" FontAttributes="Bold"/>
+         <Label Text="{Binding UsuarioActual.NombreCompleto}" />
+
+         <Label Text="Dirección" FontAttributes="Bold"/>
+         <Label Text="{Binding UsuarioActual.Direccion}" />
+
+         <Label Text="Teléfono" FontAttributes="Bold"/>
+         <Label Text="{Binding UsuarioActual.Telefono}" />
+
+         <Label Text="Email" FontAttributes="Bold"/>
+         <Label Text="{Binding UsuarioActual.Email}" />
+
+         <Button Text="Cerrar" Command="{Binding CerrarModalCommand}" />
+
+      </VerticalStackLayout>
+      </Border>
+   </ScrollView>
+
+</ContentPage>
