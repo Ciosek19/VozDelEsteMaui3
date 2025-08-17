@@ -41,7 +41,6 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<Noticias>();
          builder.Services.AddTransient<Peliculas>();
 
-
          // Data
          builder.Services.AddTransient<SQLiteDbContext>();
          builder.Services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
