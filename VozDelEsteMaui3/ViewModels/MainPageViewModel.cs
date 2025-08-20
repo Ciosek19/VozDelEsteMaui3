@@ -24,6 +24,7 @@ namespace VozDelEsteMaui3.ViewModels
       public ICommand IrPaginaCotizacionesCommand { get; }
       public ICommand IrPaginaNoticiasCommand { get; }
       public ICommand IrPaginaPeliculasCommand { get; }
+      public ICommand IrPaginaPatrocinadoresCommand { get; }
 
       public MainPageViewModel(ISesionServicio sesionServicio, IServiceProvider serviceProvider)
       {
@@ -41,6 +42,7 @@ namespace VozDelEsteMaui3.ViewModels
          IrPaginaCotizacionesCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Cotizaciones)));
          IrPaginaNoticiasCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Noticias)));
          IrPaginaPeliculasCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Peliculas)));
+         IrPaginaPatrocinadoresCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Patrocinadores)));
 
       }
 

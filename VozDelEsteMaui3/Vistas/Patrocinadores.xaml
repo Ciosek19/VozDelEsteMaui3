@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VozDelEsteMaui3.Vistas.Patrocinadores"
+             Title="Patrocinadores">
+   <Grid Padding="20">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="Auto"/>
+         <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <!-- Botón Agregar -->
+      <FlexLayout>
+         <Button Text="Agregar Patrocinador"
+         HorizontalOptions="End"
+         Command="{Binding AgregarPatrocinadorCommand}"/>
+      </FlexLayout>
+
+      <!-- Tabla de patrocinadores -->
+      <CollectionView Grid.Row="1"
+      ItemsSource="{Binding Patrocinadores}"
+      Margin="0,20,0,0">
+         <CollectionView.ItemTemplate>
+            <DataTemplate>
+               <Grid Padding="10" ColumnSpacing="20">
+                  <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="Auto"/>
+                     <ColumnDefinition Width="Auto"/>
+                     <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+
+                  <!-- Logo -->
+                  <Border StrokeShape="Ellipse">
+                     <Image Grid.Column="0"
+                     Source="{Binding LogoUrl}"
+                     WidthRequest="100"
+                     HeightRequest="100"
+                     Aspect="AspectFill"
+                     VerticalOptions="Center"/>
+                  </Border>
+
+                  <Label Grid.Column="1"
+                  Text="{Binding Nombre}"
+                  FontSize="16"
+                  VerticalOptions="Center"/>
+
+                  <FlexLayout Grid.Column="2" Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="Start" >
+                  <Button 
+                  Margin="0,0,10,0"
+                  Text="📍 Ver ubicacion"
+                  MaximumHeightRequest="50"
+                  TextColor="White"
+                  Command="{Binding BindingContext.VerUbicacionCommand}"
+                  CommandParameter="{Binding .}"
+                  BackgroundColor="ForestGreen"/>
+                     
+                  <Button 
+                  Margin="0,0,10,0"
+                  Text="✏️ Editar"
+                  TextColor="White"
+                  MaximumHeightRequest="50"
+                  Command="{Binding BindingContext.EditarCommand}"
+                  CommandParameter="{Binding .}"
+                  BackgroundColor="DarkGoldenrod"/>
+
+                  <!-- Eliminar -->
+                  <Button 
+                  Text="🗑️ Eliminar"
+                  TextColor="White"
+                  MaximumHeightRequest="50"
+                  Command="{Binding BindingContext.EliminarCommand}"
+                  CommandParameter="{Binding .}"
+                  BackgroundColor="DarkRed"/>
+               </FlexLayout>
+               </Grid>
+            </DataTemplate>
+         </CollectionView.ItemTemplate>
+      </CollectionView>
+   </Grid>
+
+</ContentPage>

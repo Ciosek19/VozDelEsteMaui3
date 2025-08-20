@@ -1,12 +1,11 @@
 ﻿
 using VozDelEsteMaui3.Data.Interfaces;
 using VozDelEsteMaui3.Modelos;
-using VozDelEsteMaui3.Orquestadores.Interfaces;
 using VozDelEsteMaui3.Servicios.Interfaces;
 
 namespace VozDelEsteMaui3.Orquestadores
 {
-   public class OrquestadorClima : IOrquestadorClima
+   public class OrquestadorClima
    {
       private readonly IClimaServicio _climaServicio;
       private readonly IClimaRepositorio _climaRepositorio;
@@ -32,6 +31,7 @@ namespace VozDelEsteMaui3.Orquestadores
             return nuevoRegistro;
          }
          
+
          return ultimoRegistro;
       }
 

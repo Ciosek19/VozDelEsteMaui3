@@ -12,6 +12,8 @@ namespace VozDelEsteMaui3
             Routing.RegisterRoute(nameof(Cotizaciones), typeof(Cotizaciones));
             Routing.RegisterRoute(nameof(Noticias), typeof(Noticias));
             Routing.RegisterRoute(nameof(Peliculas), typeof(Peliculas));
+            Routing.RegisterRoute(nameof(Patrocinadores), typeof(Patrocinadores));
+            Routing.RegisterRoute(nameof(AgregarPatrocinador), typeof(AgregarPatrocinador));
       }
     }
 }

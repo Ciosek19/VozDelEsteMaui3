@@ -27,7 +27,7 @@ namespace VozDelEsteMaui3.Modelos
       [NotNull, EmailAddress, Unique]
       public string Email { get; set; }
 
-      public string FotoUrl { get; set; }
+      public string FotoUrl { get; set; } = "";
 
       public bool EsAdmin { get; set; }
    }

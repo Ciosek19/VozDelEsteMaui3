@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
+             xmlns:m="clr-namespace:VozDelEsteMaui3.Modelos"
              x:Class="VozDelEsteMaui3.Vistas.Clima"
-             Title="Clima">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:ClimaViewModel"
+             Title="Clima"
+             >
+   <ScrollView>
+      <VerticalStackLayout Padding="20" Spacing="20">
+
+         <Border Stroke="#B2EBF2" StrokeThickness="2" Background="DeepSkyBlue" Padding="15" StrokeShape="RoundRectangle 10">
+            <VerticalStackLayout>
+               <Label Text="{Binding ClimaActual.Fecha}" FontSize="24" FontAttributes="Bold" />
+               <Label Text="{Binding ClimaActual.Estado}" FontSize="24" FontAttributes="Bold" />
+               <Label Text="{Binding ClimaActual.Descripcion}" FontSize="18" />
+               <Label Text="{Binding ClimaActual.Temperatura, StringFormat='Temperatura: {0}°C'}" FontSize="18" />
+               <Label Text="{Binding ClimaActual.PorcentajeHumedad, StringFormat='Humedad: {0}%'}" FontSize="18" />
+               <Label Text="{Binding ClimaActual.VelocidadViento, StringFormat='Viento: {0} km/h'}" FontSize="18" />
+            </VerticalStackLayout>
+         </Border>
+
+         <Label Text="Próximos días" FontSize="20" FontAttributes="Bold" />
+
+         <ScrollView Orientation="Horizontal">
+            <HorizontalStackLayout Spacing="10">
+               <CollectionView ItemsSource="{Binding Pronostico}" 
+                                    ItemsLayout="HorizontalList">
+                  <CollectionView.ItemTemplate>
+                     <DataTemplate
+                        x:DataType="m:ModeloClima">
+                        <Border Stroke="#CCCCCC" StrokeThickness="1" Background="DarkCyan" Padding="10" StrokeShape="RoundRectangle 10"
+                                        WidthRequest="150" HeightRequest="200">
+                           <VerticalStackLayout>
+                              <Label Text="{Binding Fecha, StringFormat='{0:dd/MM HH:mm}'}" FontSize="14" HorizontalOptions="Center" />
+                              <Image Source="{Binding IconoUrl}" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" />
+                              <Label Text="{Binding Estado}" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" />
+                              <Label Text="{Binding Temperatura, StringFormat='{0}°C'}" FontSize="14" HorizontalOptions="Center" />
+                              <Label Text="{Binding TemperaturaMinima, StringFormat='Min: {0}°'}" FontSize="12" />
+                              <Label Text="{Binding TemperaturaMaxima, StringFormat='Max: {0}°'}" FontSize="12" />
+                           </VerticalStackLayout>
+                        </Border>
+                     </DataTemplate>
+                  </CollectionView.ItemTemplate>
+               </CollectionView>
+            </HorizontalStackLayout>
+         </ScrollView>
+
+      </VerticalStackLayout>
+   </ScrollView>
+
+
 </ContentPage>

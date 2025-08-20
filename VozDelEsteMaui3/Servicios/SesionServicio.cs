@@ -32,6 +32,7 @@ namespace VozDelEsteMaui3.Servicios
             MostrarCotizaciones = Preferences.Get("mostrarCotizaciones", true),
             MostrarNoticias = Preferences.Get("mostrarNoticias", true),
             MostrarPeliculas = Preferences.Get("mostrarPeliculas", true),
+            MostrarPatrocinadores = Preferences.Get("mostrarPatrocinadores", true),
          };
       }
 
@@ -41,6 +42,7 @@ namespace VozDelEsteMaui3.Servicios
          Preferences.Set("mostrarCotizaciones", PreferenciasUsuario.MostrarCotizaciones);
          Preferences.Set("mostrarNoticias", PreferenciasUsuario.MostrarNoticias);
          Preferences.Set("mostrarPeliculas", PreferenciasUsuario.MostrarPeliculas);
+         Preferences.Set("mostrarPatrocinadores", PreferenciasUsuario.MostrarPatrocinadores);
       }
 
       public async Task<bool> LoginAsync(string alias, string clave)

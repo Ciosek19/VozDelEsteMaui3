@@ -3,10 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VozDelEsteMaui3.Vistas.Cotizaciones"
              Title="Cotizaciones">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+   <ScrollView>
+      <VerticalStackLayout Padding="20" Spacing="16">
+
+         <!-- Título -->
+         <Label Text="Cotización Actual"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+         <!-- Ventanas de cotización -->
+         <Border Stroke="LightGray" StrokeThickness="1" Padding="12" BackgroundColor="MidnightBlue">
+            <Border.StrokeShape>
+               <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <FlexLayout Direction="Column">
+               <Label Text="Euro" FontAttributes="Bold" />
+               <Label Text="{Binding CotizacionActual.UyuEur, StringFormat='U$S {0:F2}'}" Grid.Column="1" />
+            </FlexLayout>
+         </Border>
+
+         <Border Stroke="LightGray" StrokeThickness="1" Padding="12" BackgroundColor="DarkRed">
+            <Border.StrokeShape>
+               <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <FlexLayout Direction="Column">
+               <Label Text="Dolar" FontAttributes="Bold" />
+               <Label Text="{Binding CotizacionActual.UyuUsd, StringFormat='U$S {0:F2}'}" Grid.Column="1" />
+            </FlexLayout>
+         </Border>
+
+         <Border Stroke="LightGray" StrokeThickness="1" Padding="12" BackgroundColor="DeepSkyBlue">
+            <Border.StrokeShape>
+               <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <FlexLayout Direction="Column">
+               <Label Text="Peso Argentino" FontAttributes="Bold" />
+               <Label Text="{Binding CotizacionActual.UyuArs, StringFormat='U$S {0:F2}'}" Grid.Column="1" />
+            </FlexLayout>
+         </Border>
+
+         <Border Stroke="LightGray" StrokeThickness="1" Padding="12" BackgroundColor="DarkGoldenrod">
+            <Border.StrokeShape>
+               <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <FlexLayout Direction="Column">
+               <Label Text="Real" FontAttributes="Bold" />
+               <Label Text="{Binding CotizacionActual.UyuBrl, StringFormat='U$S {0:F2}'}" Grid.Column="1" />
+            </FlexLayout>
+         </Border>
+
+      </VerticalStackLayout>
+   </ScrollView>
 </ContentPage>

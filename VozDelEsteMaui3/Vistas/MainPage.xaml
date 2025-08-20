@@ -116,7 +116,7 @@ VerticalOptions="Start"
                   Margin="20"
                   ZIndex="1" />
                   <Grid.GestureRecognizers>
-                     <TapGestureRecognizer Command="{Binding IrPaginaClimaCommand}" />
+                     <TapGestureRecognizer Command="{Binding IrPaginaCotizacionesCommand}" />
                   </Grid.GestureRecognizers>
                </Grid>
             </Border>
@@ -152,7 +152,7 @@ VerticalOptions="Start"
                   Margin="20"
                   ZIndex="1" />
                   <Grid.GestureRecognizers>
-                     <TapGestureRecognizer Command="{Binding IrPaginaClimaCommand}" />
+                     <TapGestureRecognizer Command="{Binding IrPaginaNoticiasCommand}" />
                   </Grid.GestureRecognizers>
                </Grid>
             </Border>
@@ -189,6 +189,41 @@ VerticalOptions="Start"
                   ZIndex="1" />
                   <Grid.GestureRecognizers>
                      <TapGestureRecognizer Command="{Binding IrPaginaPeliculasCommand}" />
+                  </Grid.GestureRecognizers>
+               </Grid>
+            </Border>
+
+            <Border IsVisible="{Binding Preferencias.MostrarPatrocinadores}"
+BackgroundColor="Transparent"
+Padding="0"
+Margin="0"
+HeightRequest="200"
+HorizontalOptions="Fill"
+StrokeThickness="0">
+               <Border.StrokeShape>
+                  <RoundRectangle CornerRadius="30" />
+               </Border.StrokeShape>
+
+               <Grid>
+                  <Image Source="patrocinadores.jpg"
+      Aspect="AspectFill"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill" />
+
+                  <BoxView BackgroundColor="#a0000000"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill" />
+
+                  <Label Text="Patrocinadores"
+      FontSize="24"
+      TextColor="White"
+      FontAttributes="Bold"
+      HorizontalOptions="Start"
+      VerticalOptions="Start"
+      Margin="20"
+      ZIndex="1" />
+                  <Grid.GestureRecognizers>
+                     <TapGestureRecognizer Command="{Binding IrPaginaPatrocinadoresCommand}" />
                   </Grid.GestureRecognizers>
                </Grid>
             </Border>

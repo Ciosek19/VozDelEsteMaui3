@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using VozDelEsteMaui3.Data;
 using VozDelEsteMaui3.Data.Interfaces;
 using VozDelEsteMaui3.Data.Repositorios;
+using VozDelEsteMaui3.Orquestadores;
 using VozDelEsteMaui3.Servicios;
 using VozDelEsteMaui3.Servicios.Interfaces;
 using VozDelEsteMaui3.ViewModels;
@@ -18,11 +19,17 @@ namespace VozDelEsteMaui3
          builder
              .UseMauiApp<App>()
              .UseMauiCommunityToolkit()
+
+
+             //.UseMauiMaps()
              .ConfigureFonts(fonts =>
              {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
              });
+#if ANDROID || IOS || MACCATALYST
+         builder.UseMauiMaps();
+#endif
 #if DEBUG
          builder.Logging.AddDebug();
 #endif
@@ -31,6 +38,9 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<LoginViewModel>();
          builder.Services.AddTransient<RegistroViewModel>();
          builder.Services.AddTransient<MainPageViewModel>();
+         builder.Services.AddTransient<ClimaViewModel>();
+         builder.Services.AddTransient<CotizacionViewModel>();
+         builder.Services.AddTransient<PatrocinadorViewModel>();
 
          // Vistas
          builder.Services.AddTransient<Login>();
@@ -40,15 +50,24 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<Cotizaciones>();
          builder.Services.AddTransient<Noticias>();
          builder.Services.AddTransient<Peliculas>();
+         builder.Services.AddTransient<Patrocinadores>();
+         builder.Services.AddTransient<AgregarPatrocinador>();
 
          // Data
          builder.Services.AddTransient<SQLiteDbContext>();
          builder.Services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
+         builder.Services.AddTransient<IClimaRepositorio, ClimaRepositorio>();
+         builder.Services.AddTransient<ICotizacionRepositorio, CotizacionRepositorio>();
+         builder.Services.AddTransient<IPatrocinadorRepositorio, PatrocinadorRepositorio>();
 
          // Servicios
          builder.Services.AddSingleton<ISesionServicio,SesionServicio>();
-         builder.Services.AddTransient<INavegacionServicio,NavegacionServicio>();
+         builder.Services.AddSingleton<IClimaServicio,ClimaServicio>();
+         builder.Services.AddSingleton<ICotizacionServicio,CotizacionServicio>();
 
+         // Orquestadores
+         builder.Services.AddTransient<OrquestadorClima>();
+         builder.Services.AddTransient<OrquestadorCotizacion>();
          return builder.Build();
       }
    }

@@ -20,5 +20,8 @@ namespace VozDelEsteMaui3.Modelos
 
       [ObservableProperty]
       private bool mostrarPeliculas;
+
+      [ObservableProperty]
+      private bool mostrarPatrocinadores;
    }
 }

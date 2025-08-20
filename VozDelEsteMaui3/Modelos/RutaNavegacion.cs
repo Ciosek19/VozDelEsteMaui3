@@ -1,6 +1,7 @@
 ﻿
 namespace VozDelEsteMaui3.Modelos
 {
+   /*
    public class RutaNavegacion
    {
       public string Ruta { get; }
@@ -20,4 +21,5 @@ namespace VozDelEsteMaui3.Modelos
          RequiereAutenticacion = requiereAutenticacion;
       }
    }
+   */
 }
