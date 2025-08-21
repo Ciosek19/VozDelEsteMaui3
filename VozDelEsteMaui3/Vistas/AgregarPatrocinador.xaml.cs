@@ -21,17 +21,17 @@ public partial class AgregarPatrocinador : ContentPage
       Mapa.Pins.Clear();
       Mapa.Pins.Add(new Pin
       {
-         Label = "Ubicación seleccionada",
+         Label = "Ubicacion seleccionada",
          Location = e.Location,
          Type = PinType.Place
       });
 
       // Delegar al ViewModel
-      if (BindingContext is AgregarPatrocinadorViewModel vm)
+      /*if (BindingContext is AgregarPatrocinadorViewModel vm)
       {
          vm.UbicacionSeleccionada = new Coordenadas(lat, lon);
          vm.ValidarUbicacionCommand?.Execute(null);
-      }
+      }*/
    }
 
 }

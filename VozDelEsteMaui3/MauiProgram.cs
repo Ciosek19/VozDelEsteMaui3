@@ -41,6 +41,7 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<ClimaViewModel>();
          builder.Services.AddTransient<CotizacionViewModel>();
          builder.Services.AddTransient<PatrocinadorViewModel>();
+         builder.Services.AddTransient<AgregarPatrocinadorViewModel>();
 
          // Vistas
          builder.Services.AddTransient<Login>();
