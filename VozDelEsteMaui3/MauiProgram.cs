@@ -42,6 +42,7 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<CotizacionViewModel>();
          builder.Services.AddTransient<PatrocinadorViewModel>();
          builder.Services.AddTransient<AgregarPatrocinadorViewModel>();
+         builder.Services.AddTransient<EditarPatrocinadorViewModel>();
 
          // Vistas
          builder.Services.AddTransient<Login>();
@@ -53,6 +54,7 @@ namespace VozDelEsteMaui3
          builder.Services.AddTransient<Peliculas>();
          builder.Services.AddTransient<Patrocinadores>();
          builder.Services.AddTransient<AgregarPatrocinador>();
+         builder.Services.AddTransient<EditarPatrocinador>();
 
          // Data
          builder.Services.AddTransient<SQLiteDbContext>();

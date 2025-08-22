@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VozDelEsteMaui3.Vistas.Patrocinadores"
+             x:Name="PatrocinadoresPagina"
              Title="Patrocinadores">
    <Grid Padding="20">
       <Grid.RowDefinitions>
@@ -50,7 +51,7 @@
                   Text="📍 Ver ubicacion"
                   MaximumHeightRequest="50"
                   TextColor="White"
-                  Command="{Binding BindingContext.VerUbicacionCommand}"
+                  Command="{Binding VerUbicacionCommand}"
                   CommandParameter="{Binding .}"
                   BackgroundColor="ForestGreen"/>
                      
@@ -59,8 +60,8 @@
                   Text="✏️ Editar"
                   TextColor="White"
                   MaximumHeightRequest="50"
-                  Command="{Binding BindingContext.EditarCommand}"
-                  CommandParameter="{Binding .}"
+                  Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.EditarCommand}"
+                  CommandParameter="{Binding Id}"
                   BackgroundColor="DarkGoldenrod"/>
 
                   <!-- Eliminar -->
@@ -68,7 +69,7 @@
                   Text="🗑️ Eliminar"
                   TextColor="White"
                   MaximumHeightRequest="50"
-                  Command="{Binding BindingContext.EliminarCommand}"
+                  Command="{Binding EliminarCommand}"
                   CommandParameter="{Binding .}"
                   BackgroundColor="DarkRed"/>
                </FlexLayout>
