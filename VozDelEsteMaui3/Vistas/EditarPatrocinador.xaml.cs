@@ -16,12 +16,6 @@ public partial class EditarPatrocinador : ContentPage
         _patrocinadorRepositorio = patrocinadorRepositorio;
         InitializeComponent();
         BindingContext = editarPatrocinadorViewModel;
-        var html = new LeafletCreadorMapa().BuildMapHtml(
-            LeafletMapMode.Editar,
-            popupTexto: "Ubicacion"
-        );
-        LeafletWebView.Source = new HtmlWebViewSource { Html = html };
-
 
         LeafletWebView.Navigating += (s, e) =>
         {
@@ -36,6 +30,7 @@ public partial class EditarPatrocinador : ContentPage
             }
         };
 
+
     }
     protected override async void OnAppearing()
     {
@@ -44,6 +39,16 @@ public partial class EditarPatrocinador : ContentPage
         var vm = (EditarPatrocinadorViewModel)BindingContext;
         vm.Id = PatrocinadorId;
         await vm.CargarPatrocinador();
+
+        var html = new LeafletCreadorMapa().BuildMapHtml(
+        LeafletMapMode.Editar,
+        lat: vm.Patrocinador.Latitud,
+        lng: vm.Patrocinador.Longitud,
+        popupTexto: vm.Patrocinador.Nombre ?? "Ubicación"
+    );
+
+        LeafletWebView.Source = new HtmlWebViewSource { Html = html };
+
     }
 
 }

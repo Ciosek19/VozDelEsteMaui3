@@ -31,7 +31,7 @@
                  />
             </FlexLayout>
                 <Button Grid.Row="7"
-                Text="Crear patrocinador"
+                Text="Actualizar "
                 Command="{Binding ActualizarPatrocinadorCommand}"
                 HorizontalOptions="Fill"/>
         </Grid>

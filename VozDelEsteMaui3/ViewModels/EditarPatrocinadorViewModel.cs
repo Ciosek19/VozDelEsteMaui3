@@ -1,4 +1,5 @@
 ﻿
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
 using VozDelEsteMaui3.Data.Interfaces;
@@ -77,6 +78,7 @@ namespace VozDelEsteMaui3.ViewModels
             }
             await _patrocinadorRepositorio.ActualizarAsync(Patrocinador);
             await Application.Current.MainPage.DisplayAlert("Exito", "Patrocinador actualizado correctamente", "OK");
+            await Shell.Current.GoToAsync("..");
         }
 
     }
