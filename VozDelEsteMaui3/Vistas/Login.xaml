@@ -42,8 +42,13 @@
             Command="{Binding LoginCommand}"
             Margin="10"
             />
+            <Button
+   Text="Ingresar con huella"
+   Command="{Binding IngresarConHuellaCommand}"
+   Margin="10"
+   />
 
-         <Button
+            <Button
             Text="Registrarse"
             Command="{Binding RegistroCommand}"
             Margin="10"

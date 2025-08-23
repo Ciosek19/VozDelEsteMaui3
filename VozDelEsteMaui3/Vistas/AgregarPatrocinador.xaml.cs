@@ -21,7 +21,6 @@ public partial class AgregarPatrocinador : ContentPage
         );
         LeafletWebView.Source = new HtmlWebViewSource { Html = html };
 
-
         LeafletWebView.Navigating += (s, e) =>
         {
             if (e.Url.StartsWith("leaflet://location"))

@@ -4,29 +4,39 @@ using VozDelEsteMaui3.Vistas;
 
 namespace VozDelEsteMaui3
 {
-   public partial class App : Application
-   {
-      private readonly IServiceProvider _serviceProvider;
+    public partial class App : Application
+    {
+        private readonly ISesionServicio _sesionServicio;
+        private readonly IServiceProvider _serviceProvider;
 
-      public App(ISesionServicio sesionServicio, IServiceProvider serviceProvider)
-      {
-         _serviceProvider = serviceProvider;
+        public App(ISesionServicio sesionServicio, IServiceProvider serviceProvider)
+        {
+            _sesionServicio = sesionServicio;
+            _serviceProvider = serviceProvider;
 
-         InitializeComponent();
+            InitializeComponent();
+        }
 
-         if (sesionServicio.EstaAutenticado)
-         {
-            MainPage = new AppShell();
-         }
-         else
-         {
-            MainPage = new NavigationPage(serviceProvider.GetRequiredService<Login>());
-         }
-      }
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            Page paginaInicial;
 
-      public void ReiniciarApp()
-      {
-         MainPage = new NavigationPage(_serviceProvider.GetRequiredService<Login>());
-      }
-   }
+            if (_sesionServicio.EstaAutenticado)
+            {
+                paginaInicial = new AppShell();
+            }
+            else
+            {
+                paginaInicial = new NavigationPage(_serviceProvider.GetRequiredService<Login>());
+            }
+
+            return new Window(paginaInicial);
+        }
+
+        public void ReiniciarApp()
+        {
+            var nuevaPagina = new NavigationPage(_serviceProvider.GetRequiredService<Login>());
+            Application.Current.Windows[0].Page = nuevaPagina;
+        }
+    }
 }

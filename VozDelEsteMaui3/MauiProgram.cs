@@ -27,12 +27,7 @@ namespace VozDelEsteMaui3
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
              });
-#if ANDROID || IOS || MACCATALYST
-         builder.UseMauiMaps();
-#endif
-#if DEBUG
          builder.Logging.AddDebug();
-#endif
 
          // ViewModels
          builder.Services.AddTransient<LoginViewModel>();
