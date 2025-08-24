@@ -4,9 +4,9 @@
              x:Class="VozDelEsteMaui3.Vistas.Registro"
              xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
              x:DataType="vm:RegistroViewModel"
-             Title="Registro">
+             Title="">
    <ScrollView>
-      <VerticalStackLayout Padding="30" Spacing="15">
+      <VerticalStackLayout Padding="30,0" Spacing="15">
          <Label Text="Registro de Usuario" FontSize="24" HorizontalOptions="Center" />
 
          <Entry Placeholder="Alias" Text="{Binding Alias}" />
@@ -15,9 +15,10 @@
          <Entry Placeholder="Dirección" Text="{Binding Direccion}" />
          <Entry Placeholder="Teléfono" Text="{Binding Telefono}" Keyboard="Telephone" />
          <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
-         <Entry Placeholder="Foto URL" Text="{Binding FotoUrl}" />
-
-         <Button Text="Registrarse" Command="{Binding RegistrarCommand}" />
+        <Button Text="Sacate una foto (opcional)" Command="{Binding SacarFotoCommand}" />
+        <Image Source="{Binding FotoUrl}" HeightRequest="100" WidthRequest="100"/>
+        
+         <Button Text="Registrarsee" Command="{Binding RegistrarCommand}" />
       </VerticalStackLayout>
    </ScrollView>
 

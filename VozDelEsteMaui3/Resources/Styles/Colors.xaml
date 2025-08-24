@@ -4,9 +4,31 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
+    <Color x:Key="ColorPrimario">#46c6ec</Color>
+    <Color x:Key="ColorSecundario">#eabc95</Color>
+    <Color x:Key="ColorPrimarioOscuro">#2fa3c4</Color>
+    <Color x:Key="ColorSecundarioOscuro">#d4a77f</Color>
+    <Color x:Key="TextoPrincipal">#1f2f3a</Color>
+    <Color x:Key="TextoSecundario">#3a2f1f</Color>
 
-    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="BlancoSuave">#d6eaf5</Color>
+    <Color x:Key="GrisClaro">#cbe3ed</Color>
+    <Color x:Key="GrisMedio">#a3c7d6</Color>
+    <Color x:Key="GrisOscuro">#6b9fb1</Color>
+    <Color x:Key="GrisProfundo">#3a5f6c</Color>
+    <Color x:Key="GrisNoche">#1f2f36</Color>
+    <Color x:Key="GrisAbsoluto">#141f24</Color>
+    <Color x:Key="NegroSuave">#1f3147</Color>
+    <Color x:Key="NegroApagado">#1f2a33</Color>
+
+    <Color x:Key="Verde">#6baf9f</Color>
+    <Color x:Key="Amarillo">#b1af6b</Color>
+    <Color x:Key="Rojo">#b16b7b</Color>
+
+
+
+
+    <Color x:Key="Primary">#46c6ec</Color>
     <Color x:Key="PrimaryDark">#ac99ea</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>

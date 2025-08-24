@@ -11,10 +11,10 @@ namespace VozDelEsteMaui3
 
         public App(ISesionServicio sesionServicio, IServiceProvider serviceProvider)
         {
+            InitializeComponent();
             _sesionServicio = sesionServicio;
             _serviceProvider = serviceProvider;
 
-            InitializeComponent();
         }
 
         protected override Window CreateWindow(IActivationState activationState)

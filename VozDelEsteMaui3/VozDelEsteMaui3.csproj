@@ -118,6 +118,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Resources\Images\ClimaFondo\" />
 	  <Folder Include="Resources\Images\Patrocinadores\" />
 	</ItemGroup>
 

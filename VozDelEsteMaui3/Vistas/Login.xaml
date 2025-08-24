@@ -4,56 +4,48 @@
              xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
              x:Class="VozDelEsteMaui3.Vistas.Login"
              x:DataType="vm:LoginViewModel"
-             Title="Login">
-   <VerticalStackLayout
+             Title=""
+             BackgroundColor="{StaticResource BlancoSuave}">
+    <VerticalStackLayout
        Padding="50">
-      <Label
-         Text="Login"
-         Style="{StaticResource Headline}"
-         SemanticProperties.HeadingLevel="Level1" 
-         VerticalTextAlignment="Center"
-         Margin="0,0,0,40"
-      />
-      <FlexLayout 
+         
+        <Image
+            Source="logo.png"
+            Margin="0,0,0,50"/>
+
+        <FlexLayout 
          HorizontalOptions="Center"
-         Direction="Column">
-         <Entry 
+         Direction="Column"
+            Margin="0,0,0,30">
+            <Entry 
             FlexLayout.Grow="1"
             Text="{Binding Usuario}"
             MaximumWidthRequest="800"
             Placeholder="Ingrese su usuario"
             Margin="0,0,0,20"/>
-         <Entry 
+            <Entry 
             Text="{Binding Clave}"
             FlexLayout.Grow="3"
             MaximumWidthRequest="800"
             Placeholder="Ingrese su contraseña"/>
-      </FlexLayout>
-      <FlexLayout
-          HorizontalOptions="Center"
-          Margin="0,20,0,0"
-          Wrap="Wrap"
-          Direction="Row"
-          JustifyContent="Center"
-          AlignItems="Center">
+        </FlexLayout>
+        <Grid RowDefinitions="auto,auto" ColumnDefinitions="*,*" RowSpacing="30" ColumnSpacing="10"
+          HorizontalOptions="Fill"
+          Margin="0,20,0,0">
 
-         <Button
+            <Button Grid.Row="0" Grid.Column="0"
             Text="Ingresar"
             Command="{Binding LoginCommand}"
-            Margin="10"
             />
-            <Button
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
    Text="Ingresar con huella"
    Command="{Binding IngresarConHuellaCommand}"
-   Margin="10"
    />
-
-            <Button
+            <Button Grid.Row="0" Grid.Column="1"
             Text="Registrarse"
             Command="{Binding RegistroCommand}"
-            Margin="10"
             />
-      </FlexLayout>
+        </Grid>
 
-   </VerticalStackLayout>
+    </VerticalStackLayout>
 </ContentPage>

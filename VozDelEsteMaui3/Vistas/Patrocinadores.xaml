@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VozDelEsteMaui3.Vistas.Patrocinadores"
              x:Name="PatrocinadoresPagina"
-             Title="Patrocinadores">
+             Title="">
    <Grid Padding="20">
       <Grid.RowDefinitions>
          <RowDefinition Height="Auto"/>
@@ -23,59 +23,61 @@
       Margin="0,20,0,0">
          <CollectionView.ItemTemplate>
             <DataTemplate>
-               <Grid Padding="10" ColumnSpacing="20">
-                  <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="60"/>
-                     <ColumnDefinition Width="Auto"/>
-                     <ColumnDefinition Width="*"/>
-                  </Grid.ColumnDefinitions>
-
-                  <!-- Logo -->
-                  <Border StrokeShape="Ellipse" WidthRequest="80" HeightRequest="80">
-                     <Image Grid.Column="0"
+                    <Border BackgroundColor="{StaticResource GrisClaro}" Padding="5" StrokeShape="RoundRectangle 12">
+                        <Grid Padding="10" ColumnSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Logo -->
+                            <Border StrokeShape="Ellipse" WidthRequest="80" HeightRequest="80" BackgroundColor="{StaticResource GrisMedio}" InputTransparent="True">
+                                <Image Grid.Column="0"
                      Source="{Binding LogoUrl}"
                     WidthRequest="50"
                     HeightRequest="50"
                      Aspect="AspectFill"
                      VerticalOptions="Center"/>
-                  </Border>
+                            </Border>
 
-                  <Label Grid.Column="1"
+                            <Label Grid.Column="1"
                   Text="{Binding Nombre}"
                   FontSize="16"
-                  VerticalOptions="Center"/>
+                  VerticalOptions="Center"
+                         TextColor="{StaticResource ColorPrimarioOscuro}"/>
 
-                  <FlexLayout Grid.Column="2" Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="Start" >
-                  <Button 
+                            <FlexLayout Grid.Column="2" Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="Start" >
+                                <Button 
                   Margin="0,2"
                   Text="📍 Ver ubicacion"
                   MaximumHeightRequest="50"
                   TextColor="White"
                   Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.VerUbicacionCommand}"
                   CommandParameter="{Binding .}"
-                  BackgroundColor="ForestGreen"/>
-                     
-                  <Button 
+                  BackgroundColor="{StaticResource Verde}"/>
+
+                                <Button 
                   Margin="0,2"
                   Text="✏️ Editar"
                   TextColor="White"
                   MaximumHeightRequest="50"
                   Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.EditarCommand}"
                   CommandParameter="{Binding Id}"
-                  BackgroundColor="DarkGoldenrod"/>
+                  BackgroundColor="{StaticResource Amarillo}"/>
 
-                  <!-- Eliminar -->
-                  <Button 
+                                <!-- Eliminar -->
+                                <Button 
                       Margin="0,2"
                   Text="🗑️ Eliminar"
                   TextColor="White"
                   MaximumHeightRequest="50"
                   Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.EliminarCommand}"
                   CommandParameter="{Binding .}"
-                  BackgroundColor="DarkRed"/>
-               </FlexLayout>
-               </Grid>
-            </DataTemplate>
+                  BackgroundColor="{StaticResource Rojo}"/>
+                            </FlexLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
          </CollectionView.ItemTemplate>
       </CollectionView>
    </Grid>

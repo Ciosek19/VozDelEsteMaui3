@@ -76,11 +76,22 @@ namespace VozDelEsteMaui3.Servicios
                PorcentajeHumedad = item.Principal.PorcentajeHumedad,
                VelocidadViento = item.Viento.VelocidadViento,
                Fecha = item.Fecha,
+               IconoUrl = ObtenerIconoUrl(item.Clima[0].Estado)
             };
             pronosticos.Add(modeloClima);
          }
 
          return pronosticos;
       }
+        private string ObtenerIconoUrl(string estado)
+        {
+            return estado switch
+            {   
+                "Clouds" => "cloudicono.png",
+                "Clear" => "clearicono.png",
+                "Rain" => "rainicono.png",
+                _ => ""
+            };
+        }
    }
 }

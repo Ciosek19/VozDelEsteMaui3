@@ -1,56 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="VozDelEsteMaui3.Vistas.Modales.AjustesUsuarioModal"
-            xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
-            xmlns:m="clr-namespace:VozDelEsteMaui3.Modelos"
-            Title="AjustesUsuarioModal"
-            BackgroundColor="#80000000"
-            NavigationPage.HasNavigationBar="False"
-            Padding="40">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:VozDelEsteMaui3.ViewModels"
+             xmlns:m="clr-namespace:VozDelEsteMaui3.Modelos"
+             x:Class="VozDelEsteMaui3.Vistas.Modales.AjustesUsuarioModal"
+             Title="AjustesUsuarioModal"
+             BackgroundColor="#80000000"
+             NavigationPage.HasNavigationBar="False">
 
-   <ScrollView>
-      <Border
-      WidthRequest="400"
-      HeightRequest="600"
-      BackgroundColor="Black">
-         <VerticalStackLayout 
-            Spacing="10"
-            WidthRequest="350">
+    <Border WidthRequest="300"
+            HeightRequest="350"
+            Background="{StaticResource BlancoSuave}"
+            StrokeShape="RoundRectangle 12"
+            HorizontalOptions="Center">
 
-            <Label Text="Preferencias de visualización" FontAttributes="Bold" FontSize="18" />
+        <VerticalStackLayout Padding="20" Spacing="12">
+
             <FlexLayout>
-               <CheckBox IsChecked="{Binding Preferencias.MostrarClima}" />
-            <Label 
-               VerticalTextAlignment="Center"
-               HorizontalTextAlignment="Center"
-               Text="Mostrar clima" />
+                <CheckBox IsChecked="{Binding Preferencias.MostrarClima}" />
+                <Label Text="Mostrar clima"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
             </FlexLayout>
 
             <FlexLayout>
-               <CheckBox IsChecked="{Binding Preferencias.MostrarCotizaciones}" />
-               <Label 
-               VerticalTextAlignment="Center"
-               Text="Mostrar cotizaciones" />
+                <CheckBox IsChecked="{Binding Preferencias.MostrarCotizaciones}" />
+                <Label Text="Mostrar cotizaciones"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
             </FlexLayout>
 
             <FlexLayout>
-               <CheckBox IsChecked="{Binding Preferencias.MostrarNoticias}" />
-               <Label 
-               VerticalTextAlignment="Center"
-               Text="Mostrar noticias" />
+                <CheckBox IsChecked="{Binding Preferencias.MostrarNoticias}" />
+                <Label Text="Mostrar noticias"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
             </FlexLayout>
 
             <FlexLayout>
-               <CheckBox IsChecked="{Binding Preferencias.MostrarPeliculas}" />
-               <Label 
-               VerticalTextAlignment="Center"
-               Text="Mostrar peliculas" />
+                <CheckBox IsChecked="{Binding Preferencias.MostrarPeliculas}" />
+                <Label Text="Mostrar películas"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
             </FlexLayout>
 
             <Button Text="Aceptar"
-                Command="{Binding AplicarCambiosCommand}" />
-         </VerticalStackLayout>
-      </Border>
-   </ScrollView>
+                    Margin="0,20"
+                    Command="{Binding AplicarCambiosCommand}" />
+
+        </VerticalStackLayout>
+    </Border>
 </ContentPage>

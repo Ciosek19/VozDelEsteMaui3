@@ -13,7 +13,6 @@
 
       <!-- Ventana modal centrada -->
       <Border
-         x:Name="ModalFrame"
          BackgroundColor="White"
          StrokeShape="RoundRectangle 12"
          Padding="20"
@@ -33,8 +32,8 @@
 
       <!-- Botón de cierre flotante -->
       <Button Text="✕"           
-                BackgroundColor="Black"
-                TextColor="White"
+                BackgroundColor="#fff"
+                TextColor="{StaticResource ColorSecundario}"
                 FontSize="16"
                CornerRadius="32"
                 WidthRequest="32"

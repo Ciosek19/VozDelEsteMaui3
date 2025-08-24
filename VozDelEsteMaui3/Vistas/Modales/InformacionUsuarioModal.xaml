@@ -7,22 +7,20 @@
              Title="InformacionUsuarioModal"
              BackgroundColor="#80000000"
              NavigationPage.HasNavigationBar="False"
-             Padding="40">
-   
-   <ScrollView>
-      <Border
-         WidthRequest="400"
-         HeightRequest="600"
-         BackgroundColor="Black">
-      <VerticalStackLayout 
+             Padding="30">
+            
+        <Border
+         WidthRequest="300"
+         HeightRequest="500"
+            Background="{StaticResource BlancoSuave}"
+            HorizontalOptions="Center"
+            Padding="10">
+            <VerticalStackLayout 
          Spacing="10"
-         WidthRequest="250">
-            <Label
-               Text="Tus datos"
-               HorizontalTextAlignment="Center"
-               FontSize="32"
-               Margin="0,30,0,0"/>
-            <Image Source="{Binding UsuarioActual.FotoUrl}" HeightRequest="120" WidthRequest="120" Aspect="AspectFill" HorizontalOptions="Center"/>
+         WidthRequest="250"
+                HorizontalOptions="Center"
+                VerticalOptions="Start">
+                <Image Source="{Binding UsuarioActual.FotoUrl}" HeightRequest="120" WidthRequest="120" Aspect="AspectFill" HorizontalOptions="Center"/>
 
          <Label Text="Alias" FontAttributes="Bold"/>
          <Label Text="{Binding UsuarioActual.Alias}" />
@@ -43,6 +41,5 @@
 
       </VerticalStackLayout>
       </Border>
-   </ScrollView>
 
 </ContentPage>

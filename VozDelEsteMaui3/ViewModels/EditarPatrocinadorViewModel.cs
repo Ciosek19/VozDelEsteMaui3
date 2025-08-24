@@ -45,8 +45,6 @@ namespace VozDelEsteMaui3.ViewModels
                     LeafletMapMode.Editar,
                     popupTexto: Patrocinador?.Nombre ?? "Ubicación"
                 );
-
-                await Shell.Current.DisplayAlert("Exito", $"Se cargo el Id = {Id}", "Ok");
             }
             catch (Exception ex)
             {
