@@ -1,5 +1,6 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using VozDelEsteMaui3.Data.Interfaces;
 using VozDelEsteMaui3.Modelos;
@@ -13,7 +14,7 @@ namespace VozDelEsteMaui3.ViewModels
         private readonly IPatrocinadorRepositorio _patrocinadorRepositorio;
 
         [ObservableProperty]
-        private List<Patrocinador> patrocinadores;
+        private ObservableCollection<Patrocinador> patrocinadores;
 
         public ICommand AgregarPatrocinadorCommand { get; }
         public ICommand VerUbicacionCommand { get; }
@@ -30,7 +31,35 @@ namespace VozDelEsteMaui3.ViewModels
             AgregarPatrocinadorCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(AgregarPatrocinador)));
             CancelarCommand = new Command(async () => await CerrarModal());
             EditarCommand = new Command<int>(async (id) => await IrPaginaEditarPatrocinador(id));
+            EliminarCommand = new Command<Patrocinador>(async (patrocinador) => await EliminarPatrocinador(patrocinador));
+            VerUbicacionCommand = new Command<Patrocinador>(async (patrocinador) => await IrModalUbicacion(patrocinador));
+        }
 
+        private async Task IrModalUbicacion(Patrocinador patrocinador)
+        {
+            var modal = new VerUbicacionPatrocinador(_patrocinadorRepositorio)
+            {
+                BindingContext = this
+            };
+            modal.Patrocinador = patrocinador;
+            await Application.Current.MainPage.Navigation.PushModalAsync(modal);
+        }
+
+        private async Task EliminarPatrocinador(Patrocinador patrocinador)
+        {
+            bool resultado = await Shell.Current.DisplayAlert("Confirmación","¿Estás seguro de que querés continuar?","Sí","No");
+
+            if (resultado)
+            {
+                if (patrocinador != null)
+                {
+                    await _patrocinadorRepositorio.EliminarAsync(patrocinador);
+                    Patrocinadores.Remove(patrocinador);
+                    await Shell.Current.DisplayAlert("Exito", $"Se ha eliminado {patrocinador.Nombre} con exito","Ok");
+                    return;
+                }
+                await Shell.Current.DisplayAlert("Error", $"No se encontro el patrocinador","Ok");
+            }
         }
 
         public async Task IrPaginaEditarPatrocinador(int id)
@@ -40,7 +69,8 @@ namespace VozDelEsteMaui3.ViewModels
 
         public async Task CargarPatrocinadoresAsync()
         {
-            Patrocinadores = await _patrocinadorRepositorio.ObtenerTodoAsync();
+            var lista = await _patrocinadorRepositorio.ObtenerTodoAsync();
+            Patrocinadores = new ObservableCollection<Patrocinador>(lista);
         }
         private async Task CerrarModal()
         {

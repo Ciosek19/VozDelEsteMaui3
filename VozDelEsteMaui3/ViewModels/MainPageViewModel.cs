@@ -43,7 +43,6 @@ namespace VozDelEsteMaui3.ViewModels
          IrPaginaNoticiasCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Noticias)));
          IrPaginaPeliculasCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Peliculas)));
          IrPaginaPatrocinadoresCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(Patrocinadores)));
-
       }
 
       private async Task AbrirAjustes()

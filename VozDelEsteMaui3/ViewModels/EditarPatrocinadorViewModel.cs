@@ -46,11 +46,11 @@ namespace VozDelEsteMaui3.ViewModels
                     popupTexto: Patrocinador?.Nombre ?? "Ubicación"
                 );
 
-                await Application.Current.MainPage.DisplayAlert("Exito", $"Se cargo el Id = {Id}", "Ok");
+                await Shell.Current.DisplayAlert("Exito", $"Se cargo el Id = {Id}", "Ok");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
+                await Shell.Current.DisplayAlert("Error", ex.Message, "Ok");
                 await Shell.Current.GoToAsync(nameof(Patrocinadores));
                 return;
             }
@@ -68,16 +68,16 @@ namespace VozDelEsteMaui3.ViewModels
         {
             if (string.IsNullOrWhiteSpace(Patrocinador.Nombre))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Falta el nombre del patrocinador", "OK");
+                await Shell.Current.DisplayAlert("Error", "Falta el nombre del patrocinador", "OK");
                 return;
             }
             if (Patrocinador.Latitud == 0 || Patrocinador.Longitud == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Falta la ubicación del patrocinador", "OK");
+                await Shell.Current.DisplayAlert("Error", "Falta la ubicación del patrocinador", "OK");
                 return;
             }
             await _patrocinadorRepositorio.ActualizarAsync(Patrocinador);
-            await Application.Current.MainPage.DisplayAlert("Exito", "Patrocinador actualizado correctamente", "OK");
+            await Shell.Current.DisplayAlert("Exito", "Patrocinador actualizado correctamente", "OK");
             await Shell.Current.GoToAsync("..");
         }
 

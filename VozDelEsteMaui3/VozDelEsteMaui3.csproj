@@ -94,6 +94,9 @@
 	  <MauiXaml Update="Vistas\Modales\AjustesUsuarioModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Vistas\Modales\VerUbicacionPatrocinador.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vistas\Modales\InformacionUsuarioModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -116,6 +119,12 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Images\Patrocinadores\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Vistas\Modales\VerUbicacionPatrocinador.xaml.cs">
+	    <DependentUpon>VerUbicacionPatrocinador.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

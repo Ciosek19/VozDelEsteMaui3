@@ -36,7 +36,7 @@ namespace VozDelEsteMaui3
         public void ReiniciarApp()
         {
             var nuevaPagina = new NavigationPage(_serviceProvider.GetRequiredService<Login>());
-            Application.Current.Windows[0].Page = nuevaPagina;
+            Application.Current.Windows.FirstOrDefault().Page = nuevaPagina;
         }
     }
 }

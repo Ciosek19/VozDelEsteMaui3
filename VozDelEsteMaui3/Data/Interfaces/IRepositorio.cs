@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.ObjectModel;
+
 namespace VozDelEsteMaui3.Data.Interfaces
 {
    public interface IRepositorio<T> where T : class, new() // new() -> la clase debe tener un ctor sin parametros

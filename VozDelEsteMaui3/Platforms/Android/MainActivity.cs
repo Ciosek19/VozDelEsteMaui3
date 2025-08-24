@@ -12,9 +12,7 @@ namespace VozDelEsteMaui3
             base.OnCreate(savedInstanceState);
 
             Plugin.Fingerprint.CrossFingerprint.SetCurrentActivityResolver(() => this);
-
-            Microsoft.Maui.MauiApplication.Current.OnCreate();
         }
     }
-    
+
 }

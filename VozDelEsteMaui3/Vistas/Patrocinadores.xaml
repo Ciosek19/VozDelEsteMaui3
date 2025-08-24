@@ -25,17 +25,17 @@
             <DataTemplate>
                <Grid Padding="10" ColumnSpacing="20">
                   <Grid.ColumnDefinitions>
-                     <ColumnDefinition Width="Auto"/>
+                     <ColumnDefinition Width="60"/>
                      <ColumnDefinition Width="Auto"/>
                      <ColumnDefinition Width="*"/>
                   </Grid.ColumnDefinitions>
 
                   <!-- Logo -->
-                  <Border StrokeShape="Ellipse">
+                  <Border StrokeShape="Ellipse" WidthRequest="80" HeightRequest="80">
                      <Image Grid.Column="0"
                      Source="{Binding LogoUrl}"
-                     WidthRequest="100"
-                     HeightRequest="100"
+                    WidthRequest="50"
+                    HeightRequest="50"
                      Aspect="AspectFill"
                      VerticalOptions="Center"/>
                   </Border>
@@ -47,16 +47,16 @@
 
                   <FlexLayout Grid.Column="2" Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="Start" >
                   <Button 
-                  Margin="0,0,10,0"
+                  Margin="0,2"
                   Text="📍 Ver ubicacion"
                   MaximumHeightRequest="50"
                   TextColor="White"
-                  Command="{Binding VerUbicacionCommand}"
+                  Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.VerUbicacionCommand}"
                   CommandParameter="{Binding .}"
                   BackgroundColor="ForestGreen"/>
                      
                   <Button 
-                  Margin="0,0,10,0"
+                  Margin="0,2"
                   Text="✏️ Editar"
                   TextColor="White"
                   MaximumHeightRequest="50"
@@ -66,10 +66,11 @@
 
                   <!-- Eliminar -->
                   <Button 
+                      Margin="0,2"
                   Text="🗑️ Eliminar"
                   TextColor="White"
                   MaximumHeightRequest="50"
-                  Command="{Binding EliminarCommand}"
+                  Command="{Binding Source={x:Reference PatrocinadoresPagina}, Path=BindingContext.EliminarCommand}"
                   CommandParameter="{Binding .}"
                   BackgroundColor="DarkRed"/>
                </FlexLayout>

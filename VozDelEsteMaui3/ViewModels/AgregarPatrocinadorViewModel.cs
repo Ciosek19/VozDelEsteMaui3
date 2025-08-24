@@ -38,15 +38,16 @@ namespace VozDelEsteMaui3.ViewModels
         {
             if (string.IsNullOrWhiteSpace(Patrocinador.Nombre))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Falta el nombre del patrocinador", "OK");
+                await Shell.Current.DisplayAlert("Error", "Falta el nombre del patrocinador", "OK");
             }
             if (Patrocinador.Latitud == 0 || Patrocinador.Longitud == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Falta la ubicación del patrocinador", "OK");
+                await Shell.Current.DisplayAlert("Error", "Falta la ubicación del patrocinador", "OK");
                 return;
             }
             await _patrocinadorRepositorio.AgregarAsync(Patrocinador);
-            await Application.Current.MainPage.DisplayAlert("Exito", "Patrocinador creado correctamente", "OK");
+            await Shell.Current.DisplayAlert("Exito", "Patrocinador creado correctamente", "OK");
+            await Shell.Current.GoToAsync("..");
         }
 
     }
